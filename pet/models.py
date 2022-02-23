@@ -19,15 +19,15 @@ class Pet(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.title
+        return self.name
 
 class Owner(models.Model):
     pet = models.ForeignKey(Pet, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=80)
     email = models.EmailField()
-    body = models.TextField (blank=True, null=True)
+    #body = models.TextField (blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return f'Comment by {self.name} on {self.body}'
+    #def __str__(self):
+    #    return f'Comment by {self.name} on {self.body}'

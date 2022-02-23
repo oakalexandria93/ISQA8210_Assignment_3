@@ -13,4 +13,4 @@ class PetAdmin(admin.ModelAdmin):
 class OwnerAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'pet','created')
     list_filter = ('created', 'updated')
-    search_fields = ('name', 'email', 'body')
+    search_fields = ('name', 'email')
