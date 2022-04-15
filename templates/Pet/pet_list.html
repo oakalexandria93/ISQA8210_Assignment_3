@@ -1,0 +1,33 @@
+{% extends "pet/base.html" %}
+{% load static %}
+{% block title %}Pets{% endblock %}
+{% block content %}
+    <style>
+        img.home {
+            height: 300px;
+            object-fit: cover;
+        }
+    </style>
+    {#        Reference - https://startbootstrap.com/template/shop-homepage#}
+    <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-sm-1 row-cols-lg-3 row-cols-xl-3 justify-content-right">
+        {% for pet in pets %}
+            <div class="col">
+                <div>
+                    <!-- Pet image-->
+                    <a href="">
+                        <img class="card-img home rounded" src="{{ pet.pet_image }}" alt="image">
+                    </a>
+                    <!-- Pet details-->
+                    <div class="card-body p-3">
+                        <div class="text-left">
+                            <!-- Pet title-->
+                            <p class="fs-4">{{ pet.name }}</p>
+                            <!-- Pet Author-->
+                            <p class="fs-5 fst-italic">{{ pet.owner.get_full_name }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

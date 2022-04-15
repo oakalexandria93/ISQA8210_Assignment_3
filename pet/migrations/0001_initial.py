@@ -43,7 +43,7 @@ class Migration(migrations.Migration):
                 ('body', models.TextField(blank=True, null=True)),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('updated', models.DateTimeField(auto_now=True)),
-                ('pet', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comments', to='pet.pet')),
+                ('Pet', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comments', to='Pet.Pet')),
             ],
         ),
     ]
