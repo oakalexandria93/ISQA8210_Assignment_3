@@ -14,3 +14,9 @@ class OwnerAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'pet','created')
     list_filter = ('created', 'updated')
     search_fields = ('name', 'email')
+
+#@admin.register(Comment)
+#class CommentAdmin(admin.ModelAdmin):
+#    list_display = ('name', 'email', 'pet', 'created')
+#    list_filter = ('created', 'updated')
+#    search_fields = ('name', 'email', 'body')

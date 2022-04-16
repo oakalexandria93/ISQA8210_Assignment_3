@@ -24,12 +24,12 @@
                 <p>Sprayed or Neutered: {{ post.spayed_or_neutered }}</p>
                 <p>Species: {{ post.species }}</p>
                 <p>Breed: {{ post.breed }}</p>
-
+                {% if post.owner == user %}
                     <a href="{% url 'pet:pet_edit' pk=post.pk %}" class="btn btn-warning">Edit</a>
                     <a href="{% url 'pet:pet_delete' pk=post.pk %}"
                        onclick="return confirm('Are you sure you want to delete?')"
                        class="btn btn-danger">Delete</a>
-
+                {%endif%}
             </div>
         </div>
         <div>
@@ -42,29 +42,6 @@
             <p class="h4">Food Notes</p>
             <p>{{ post.food_notes }}</p>
         </div>
-        {% with comments.count as total_comments %}
-            <h5>
-                {{ total_comments }} comment{{ total_comments|pluralize }}
-            </h5>
-        {% endwith %}
-        {% for comment in comments %}
-            <div>
-                <p>
-                    Comment {{ forloop.counter }} by {{ comment.name }}
-                    {{ comment.created }}
-                </p>
-                {{ comment.body }}
-            </div>
-        {% empty %}
-            <p>There are no comments yet.</p>
-        {% endfor %}
-        {% if user.is_authenticated %}
-            <h5>Add a new comment</h5>
-            <form method="post">
-                {{ comment_form.as_p }}
-                {% csrf_token %}
-                <p><input type="submit" value="Add comment"></p>
-            </form>
-        {% endif %}
+
     </div>
 {% endblock %}
