@@ -14,7 +14,7 @@
             <div class="col">
                 <div>
                     <!-- Pet image-->
-                    <a href="">
+                    <a href="{% url 'pet:pet_post' post_id=pet.pk %}">
                         <img class="card-img home rounded" src="{{ pet.pet_image }}" alt="image">
                     </a>
                     <!-- Pet details-->
