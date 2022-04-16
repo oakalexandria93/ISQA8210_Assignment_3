@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterField(
-            model_name='Pet',
+            model_name='pet',
             name='owner',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='pet_posts', to=settings.AUTH_USER_MODEL),
         ),

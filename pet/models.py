@@ -31,7 +31,7 @@ class Owner(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
 #class Comment(models.Model):
-#    pet = models.ForeignKey(Pet, on_delete=models.CASCADE, related_name='comments')
+#    pet = models.ForeignKey(pet, on_delete=models.CASCADE, related_name='comments')
 #    name = models.CharField(max_length=80)
 #    email = models.EmailField()
 #    body = models.TextField(blank=True, null=True)

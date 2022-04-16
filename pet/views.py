@@ -8,8 +8,8 @@ def pet_list(request):
         object_list = Pet.objects.all().order_by('-publish')
     else:
         object_list = Pet.objects.filter(owner=request.user).all().order_by('-publish')
-    return render(request,'Pet/pet_list.html',
-            {'pets': object_list})
+    return render(request, 'pet/pet_list.html',
+                  {'pets': object_list})
 
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
@@ -111,7 +111,7 @@ def pet_post(request, post_id):
     #        comment_form = CommentForm()
     #else:
     #    comment_form = CommentForm()
-    return render(request, 'pet/pet_post.html',{'post': post})
+    return render(request, 'pet/pet_post.html', {'post': post})
 
 
 
