@@ -4,7 +4,10 @@ from .forms import *
 
 now = timezone.now()
 def pet_list(request):
-    object_list = Pet.objects.all().order_by('-publish')
+    if request.user.is_anonymous:
+        object_list = Pet.objects.all().order_by('-publish')
+    else:
+        object_list = Pet.objects.filter(owner=request.user).all().order_by('-publish')
     return render(request,'pet/pet_list.html',
             {'pets': object_list})
 
